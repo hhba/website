@@ -1,23 +1,64 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"/>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript">
-			var tablaDont = {
+	// esta tabla la devuelve la funcion que esta haciendo Oscar
+	var tablaDont = {
 				'codigoCiudadBuenosAires': {
-					'codigoFrenteParaVictoria' : 5,
+					'codigoFrenteParaVictoria' : 30,
 					'codigoUnionparaElDesarrolloSocial' : 3,
 					'codigoListaRodriguezSaa' : 2
 				}
 				,
 				'codigoSanLuis': {
-					'codigoListaRodriguezSaa' : 9,
+					'codigoListaRodriguezSaa' : 20,
 					'codigoFrenteParaVictoria' : 5,
-					'codigoUnionparaElDesarrolloSocial' : 3
+					'codigoUnionparaElDesarrolloSocial' : 10
 				}
 	    }
 	    
-	    var verticalChart = {}
-	    
+	  var verticalChart = {};
+	   $.each(tablaDont, function(provincia, partidos){
+	   	$.each(partidos, function(partido, bancas){
+	   		if (!(partido in verticalChart))
+					verticalChart[partido] = bancas;
+	   		else
+	   			verticalChart[partido] += bancas;
+	   	});
 
-	    
+	   }); 
+
+	  function fillPercent(totalSize){
+	   	var prefix = "senador-";
+	   	var percent;
+	   	$.each(verticalChart, function(partido, banca){
+	   		percent = Math.round(banca * (100/72)); // 72 bancas en total
+	   		$('#' + prefix + partido).attr("data-percent", percent);
+	   		$('#' + prefix + partido).css("height", percent * (100/totalSize) + "px");
+	   	}
+
+	   )};
+	   
+	   $(document).ready(function(){
+	   	fillPercent(50);
+	   });
+	   
 </script>
+  <style type="text/css">
+  li {
+	display:block;
+	border:1px solid blue;
+  }
+  </style>
+</head>
+<body>
 
+<ul>
+	<li id="senador-codigoUnionparaElDesarrolloSocial">Desarrollo</li>
+	<li id="senador-codigoListaRodriguezSaa">saa</li>
+	<li id="senador-codigoFrenteParaVictoria">Frente Victoria</li>
+</ul>
+
+</body>
+</html>
 
