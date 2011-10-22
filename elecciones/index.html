@@ -7,9 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title></title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<title>Elecciones 2011 - Reiniciando el periodismo en tiempo real - Hacks/Hackers Buenos Aires</title>
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -19,25 +17,131 @@
 </head>
 <body>
 
-<div id="container">
-	<header>
-    Acá vamos a poner muchas cosas muy interesantes.
-	</header>
-	<div id="main" role="main">
-    Puede ir chusmeando en <a href='https://github.com/hhba/'>Github</a>
-	</div>
-	<footer>
+<header>
+  <div class='logo'>
+    <h1>Elecciones 2011</h1>
+    Reiniciando el periodismo en tiempo real
+  </div>
+</header>
 
-	</footer>
-</div> <!--! end of #container -->
+<section id="main" role="main">
+  <h2><span>Resumen general</span></h2>
+
+  <div class='two-col'>
+    <section id='diputados'>
+      <h3>Diputados</h3>
+
+      <div class='diputados-bancas'>
+        <ul>
+        </ul>
+      </div>
+    </section>
+
+    <section id='senadores'>
+      <h3>Senadores</h3>
+
+        <div id='senadores-bancas'>
+          <ul>
+            <li>
+              <div id="bancas-senadores-02">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>Buenos Aires</span>
+            </li>
+
+            <li>
+              <div id="bancas-senadores-09">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>Formosa</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-10">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>Jujuy</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-12">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>La Rioja</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-14">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>Misiones</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-18">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>San Juan</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-19">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>San Luis</span>
+            </li>
+            <li>
+              <div id="bancas-senadores-20">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+
+              <span>Santa Cruz</span>
+            </li>
+          </ul>
+        </div>
+
+        <div id='senadores-chart'>
+        </div>
+    </section>
+  </div>
+
+  <section id='map'>
+    <div id='map-container'>
+    </div>
+  </section>
+
+
+</section>
+
+<footer>
+
+</footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src='//maps.google.com/maps/api/js?sensor=false'></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 
-<!-- scripts concatenated and minified via ant build script-->
 <script src="js/plugins.js"></script>
+<script src="js/static.js"></script>
 <script src="js/script.js"></script>
-<!-- end scripts-->
 
 <script>
     var _gaq = _gaq || [];

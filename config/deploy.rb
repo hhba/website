@@ -9,6 +9,11 @@ set :user, "www-data"
 set :deploy_to, "/var/www/website"
 set :use_sudo, false
 
+after :deploy, :assets
+
+task :assets, :roles => [:app] do
+  run "compass compile --css-dir=elecciones/css --sass-dir=sass"
+end
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
