@@ -49,7 +49,7 @@
         "diputados_nacionales_traspuesta": "1931714",
         "presidente": "1931715",
         "presidente_totales_por_provincia": "1931598", 
-        "presidente_traspuesta": "1931599",
+        "presidente_traspuesta": {"id": "1932272", "kml":"1932362"},
         "senadores_nacionales": "1931803",
         "senadores_nacionales_totales_por_provincia": "1931673",
         "senadores_nacionales_traspuesta": "1931675",
