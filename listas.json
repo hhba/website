@@ -1,0 +1,11 @@
+{
+  "listas": {
+    "0131": {"nombre": "Frente para la Victoria", "distritos": "1931214", "distritosKML": "1931082"},
+    "0047": {"nombre": "Coalición Cívia - ARI", "distritos": "1931129", "distritosKML": "1931251"},
+    "0137": {"nombre": "Unión para el Desarrollo Social", "distritos": "1931048", "distritosKML": "1931252"},
+    "0132": {"nombre": "Frente Popular", "distritos": "1931130", "distritosKML": "1931089"},
+    "0133": {"nombre": "Compromiso Federal", "distritos": "1931131", "distritosKML": "1931254"},
+    "0134": {"nombre": "Frente Amplio Progresista", "distritos": "1931132", "distritosKML": "1931179"},
+    "0135": {"nombre": "Frente de Izquierda y de los Trabajadores", "distritos": "1931050", "distritosKML": "1931091"}
+  }
+}
