@@ -28,13 +28,14 @@
 
 	   }); 
 
-	  function fillPercent(totalSize){
+	  function fillPercent(totalHeight){
+	  		// totalHeight es del chart
 	   	var prefix = "senador-";
 	   	var percent;
 	   	$.each(verticalChart, function(partido, banca){
 	   		percent = Math.round(banca * (100/72)); // 72 bancas en total
 	   		$('#' + prefix + partido).attr("data-percent", percent);
-	   		$('#' + prefix + partido).css("height", percent * (100/totalSize) + "px");
+	   		$('#' + prefix + partido).css("height", percent * (100/totalHeight) + "px");
 	   	}
 
 	   )};
