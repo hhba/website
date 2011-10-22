@@ -1,0 +1,71 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+	//la devuelve la funcion que va a hacer oscar
+		var tablaDont = {
+				'codigoCiudadBuenosAires': {
+					'codigoFrenteParaVictoria' : 3,
+					'codigoUnionparaElDesarrolloSocial' : 1
+				}
+				,
+				'codigoSanLuis': {
+					'codigoListaRodriguezSaa' : 2,
+					'codigoFrenteParaVictoria' : 2
+				}
+	    };
+
+	  function fillBancas(prefix){	 
+	  		// el prefix es del id del contenedor de bancas (a pintar)  
+	   	$.each(tablaDont, function(provincia, partidos){
+	   		var i = 0; //posicion del cuadradito a pintar
+				var bancaId = '#' + prefix +"_"+ provincia;
+				var elementos = $(bancaId + " > li");
+				
+	   		$.each(partidos, function(partido, bancas){
+					for(var j=0; j < bancas; j++, i++){
+						// iteracion por cada banca de un partido
+						$(elementos[i]).attr("data-partido", partido).addClass("lista-" + partido);
+					}
+	   		});
+
+	   	}); 
+	  		
+	   
+
+
+	  		
+	  }
+	   
+	   $(document).ready(function(){
+	   	fillBancas("bancas_senadores");
+	   });
+	   
+</script>
+  <style type="text/css">
+  li {
+	display:block;
+	border:1px solid blue;
+  }
+  </style>
+</head>
+<body>	Buenos Aires
+<ul id="bancas_senadores_codigoCiudadBuenosAires">
+<li id="_1"></li>
+	<li ></li>
+	<li id="bancas__codigoCiudadBuenosAires_3"></li>
+		<li id="bancas_senadores_codigoCiudadBuenosAires_4"></li>
+</ul>
+San Luis
+<ul id = "bancas_senadores_codigoSanLuis">
+	<li id="bancas_senadores_codigoSanLuis_1"></li>
+	<li id="bancas_senadores_codigoSanLuis_2"></li>
+	<li id="bancas_senadores_codigoSanLuis_3"></li>
+		<li id="bancas_senadores_codigoSanLuis_4"></li>
+</ul>
+
+</body>
+</html>
+
+
