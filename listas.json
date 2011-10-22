@@ -35,5 +35,20 @@
       "departamentos": "1931050",
       "departamentosKML": "1931091"
     }
+  },
+  "tablas":{
+        "diputados_nacionales": "1931542",
+        "diputados_nacionales_totales_por_provincia": "1931488",
+        "diputados_nacionales_traspuesta": "1931714",
+        "presidente": "1931715",
+        "presidente_totales_por_provincia": "1931598", 
+        "presidente_traspuesta": "1931599",
+        "senadores_nacionales": "1931803",
+        "senadores_nacionales_totales_por_provincia": "1931673",
+        "senadores_nacionales_traspuesta": "1931675",
+        "totales_diputados_nacionales": "1931677",
+        "totales_presidente": "1931681",
+        "totales_senadores_nacionales": "1931685",
+        "tendencia": "1932057"
   }
 }
