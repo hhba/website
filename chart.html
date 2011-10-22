@@ -5,15 +5,15 @@
 	// esta tabla la devuelve la funcion que esta haciendo Oscar
 	var tablaDont = {
 				'codigoCiudadBuenosAires': {
-					'codigoFrenteParaVictoria' : 30,
+					'codigoFrenteParaVictoria' : 10,
 					'codigoUnionparaElDesarrolloSocial' : 3,
-					'codigoListaRodriguezSaa' : 2
+					'codigoListaRodriguezSaa' : 1
 				}
 				,
 				'codigoSanLuis': {
-					'codigoListaRodriguezSaa' : 20,
-					'codigoFrenteParaVictoria' : 5,
-					'codigoUnionparaElDesarrolloSocial' : 10
+					'codigoListaRodriguezSaa' : 5,
+					'codigoFrenteParaVictoria' : 2,
+					'codigoUnionparaElDesarrolloSocial' : 3
 				}
 	    }
 	    
@@ -35,7 +35,7 @@
 	   	var prefix = "senador-";
 	   	var percent;
 	   	$.each(verticalChart, function(partido, banca){
-	   		percent = Math.round(banca * (100/72)); // 72 bancas en total
+	   		percent = Math.round(banca * (100/24)); // 24 bancas en total (las nuevas)
 	   		$('#' + prefix + partido).attr("data-percent", percent);
 	   		$('#' + prefix + partido).css("height", percent * (100/totalHeight) + "px");
 	   	}
