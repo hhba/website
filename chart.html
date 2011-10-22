@@ -37,8 +37,10 @@
 	   	var percent;
 	   	$.each(verticalChart, function(partido, banca){
 	   		percent = Math.round(banca * (100/24)); // 24 bancas en total (las nuevas)
-	   		$('#' + prefix + partido).attr("data-percent", percent);
-	   		$('#' + prefix + partido).css("height", percent * (100/totalHeight) + "px");
+	   		var element = '#' + prefix + partido; 
+	   		$(element).attr("data-percent", percent).addClass("lista-" + partido);
+	   		$(element).css("height", percent * (100/totalHeight) + "px");
+
 	   	}
 
 	  		)
