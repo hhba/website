@@ -1,5 +1,5 @@
 set :application, "website"
-set :repository,  "git@github.com:hhba/website.git"
+set :repository,  "git://github.com/hhba/website.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
