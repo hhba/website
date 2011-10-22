@@ -17,19 +17,21 @@
 				}
 	    }
 	    
-	  var verticalChart = {};
-	   $.each(tablaDont, function(provincia, partidos){
-	   	$.each(partidos, function(partido, bancas){
-	   		if (!(partido in verticalChart))
-					verticalChart[partido] = bancas;
-	   		else
-	   			verticalChart[partido] += bancas;
-	   	});
 
-	   }); 
 
-	  function fillPercent(totalHeight){
+	  function fillSenadoresPercent(totalHeight){
 	  		// totalHeight es del chart
+	  		var verticalChart = {};
+	   	$.each(tablaDont, function(provincia, partidos){
+	   		$.each(partidos, function(partido, bancas){
+	   			if (!(partido in verticalChart))
+						verticalChart[partido] = bancas;
+	   			else
+	   				verticalChart[partido] += bancas;
+	   		});
+
+	   	}); 
+	  		
 	   	var prefix = "senador-";
 	   	var percent;
 	   	$.each(verticalChart, function(partido, banca){
@@ -38,10 +40,11 @@
 	   		$('#' + prefix + partido).css("height", percent * (100/totalHeight) + "px");
 	   	}
 
-	   )};
+	  		)
+	  }
 	   
 	   $(document).ready(function(){
-	   	fillPercent(50);
+	   	fillSenadoresPercent(50);
 	   });
 	   
 </script>
