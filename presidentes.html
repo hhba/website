@@ -3,22 +3,32 @@
 <head>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script type="text/javascript">
-               var tablaPresidentes = [];
-					//lo necesitamos ordeando de mayor porcentaje a menor
-               tablaPresidentes[0] = {'codigo': 'cogido1', 'nombre': 'cris', 'porcentaje': 40};
-               tablaPresidentes[1] = {'codigo': 'cogido2', 'nombre': 'otro', 'porcentaje': 60};
-               
-
+               var tablaPresidentes = [['0131', 11], ['0047', 22]];
+					//lo necesitamos ordeando de mayor porcentaje a men
                
                function fillPresidentes(prefix, tabla){
-                       var presidentes = "#" + prefix;
-                       $.each(tabla, function(index, data){
-                           $(presidentes).prepend("<li>" + data.nombre + ": " + data.porcentaje + "</li>");
-                       });
 
-                }                
+							$.getJSON('tablas.json', function(data) {
+								var listas = data.listas;
+
+
+								var presidentes = "#" + prefix;
+								var nombre, porcentaje;
+								$.each(tabla, function(index, presidente){
+									nombre =  (listas[presidente[0]]).nombre;
+									porcentaje = presidente[1]
+									$(presidentes).prepend("<li>" +nombre + ": "+ porcentaje  + "</li>");				
+								});
+                		});               
+
+				  	}
+               $(document).ready(function(){
+               	fillPresidentes("presidentes", tablaPresidentes);
+               	
+               });
+
                
-               fillPresidentes("presidentes", tablaPresidentes);
+
 </script>
 </head>
 <body>
