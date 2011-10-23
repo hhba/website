@@ -5,6 +5,7 @@ set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
 role :web, "hhba.info"                          # Your HTTP server, Apache/etc
+role :app, "hhba.info"                          # Your HTTP server, Apache/etc
 set :user, "www-data"
 set :deploy_to, "/var/www/website"
 set :use_sudo, false
