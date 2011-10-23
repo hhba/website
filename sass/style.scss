@@ -289,7 +289,7 @@ ul {
 }
 
 #diputados {
-  width: 550px;
+  width: 500px;
   padding-left: 10px;
 
   ul {
@@ -310,7 +310,7 @@ ul {
       $height: 13px;
       float: left;
       height: $height;
-      width: $width * 35 + 34 * $margin * 2;
+      width: $width * 35 + 34 * $margin;
 
       div {
         width: $width;
@@ -335,7 +335,7 @@ div#diputado-sin-presidente {
 }
 
 #senadores {
-  width: 250px;
+  width: 200px;
   height: 100%;
   position: relative;
 }
