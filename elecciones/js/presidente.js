@@ -24,10 +24,11 @@
                     function cb(res) {
                             var total = getTotales(res),
                                 perc = getPercentage(res, total);
-                            for (key in perc)  
+                            for (key in perc) { 
                                 $("."+cargo+" .lista-"+Number(key)).html(perc[key] + " %" );
+                            }
 
-                            $(document).trigger('onReadyDatosPresidente'); //Terminamos de traer los datos de la Fusion del Presidente
+                            $(document).trigger('onReadyDatosPresidente',{total: total, pct: perc}); //Terminamos de traer los datos de la Fusion del Presidente
                     }
                     var sql = 'select '+ class_field +', sum('+content_field+') as votos from '+id+' group by ' + class_field;
                     query(sql, cb);
