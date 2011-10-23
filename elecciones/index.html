@@ -25,7 +25,7 @@
     Hack Electoral en tiempo real
   </div>
   <div id="headsup">
-      <h2><span>LO PRINCIPAL</span></h2>
+      <h2><span>LO PRINCIPAL</span><div style="display:inline;">Escrutinio actual: 12%</div></h2>
            <table style='width:100%'>
              <tr class='presidente'>
                <td> Presidente </td>
@@ -60,9 +60,10 @@
            </table>
   </div>
   <a href="http://www.meetup.com/HacksHackersBA/" target="_blank"><img src="http://photos4.meetupstatic.com/photos/event/6/8/b/b/global_22346811.jpeg" border="0" alt="HACKS/HACKERS BUENOS AIRES" style="float:right"></a>
+  <p class="clearer"></p>
          <div style="margin:8px 0 8px 0; font-size:14px">Mapas temáticos de las primarias presidenciales 2011, de las elecciones presidenciales 2007 y otros ilustrativos de variables socio demográficas<br/>
      <b>Luego de las 9pm</b>, los mapas se actualizarán en tiempo real con los datos del escrutinio provisorio oficial y resúmenes nacionales de las elecciones del Ejecutivo y Legislativo.</div>
-
+  <p class="clearer"></p>
 </header>
 <section id="main" role="main">
   <h2><span>Resumen general</span></h2>
@@ -80,7 +81,7 @@
         <ul>
         </ul>
       </div>
-      <div id='diputado-sin-presidente'></div> Estos diputados no llevan boleta presidencial
+      <div id='diputado-sin-presidente'></div>&nbsp;&nbsp;&nbsp; Estos legisladores no llevan boleta presidencial
     </section>
 
     <section id='senadores'>
@@ -585,16 +586,16 @@ $(document).bind('onReadyDatosPresidente',function(e,res){
 <!-- =============================================================================== -->
 <!-- =============================================================================== -->
 <section id="lower" style="padding:0px">
-  <h2><span>Cruce de datos sociodemograficos</span></h2>
-	<iframe src="http://towsa.com/andy/hacks/sociodemografia.html" width="550px" height="650px" frameborder="0" scrolling="no" >	</iframe>
-	<iframe src="http://towsa.com/andy/hacks/2011pp.html" width="550px" height="650px" frameborder="0" scrolling="no" >	</iframe>
+  <h2><span>datos sociodemograficos</span></h2>
+	<iframe src="http://towsa.com/andy/hacks/2011pp.html" width="550px" height="680px" frameborder="0" scrolling="no" >	</iframe>
+	<iframe src="http://towsa.com/andy/hacks/sociodemografia.html" width="550px" height="680px" frameborder="0" scrolling="no" >	</iframe>
 	<p style="clearer"></p>
 </section>
 
 <section id="lower" style="padding:0px">
   <h2><span>Acerca de HHBA y Esta página</span></h2>
-  Este sitio muestra resultados, tendencias e información sociodemográfica contextual de las elecciones presidenciales y legislativas en Argentina. El proyecto está en desarrollo y fue concebido como software libre por una organización internacional de periodistas y programadores que colaboran para explorar nuevas formas de periodismo de datos. 
-  <a href="#">Ver Mas...</a>
+  Este sitio muestra resultados, tendencias e información sociodemográfica contextual de las elecciones presidenciales y legislativas en Argentina. El proyecto está en desarrollo y fue concebido como una plataforma abierta por HacksHackers Buenos Aires, el capítulo local de una organización internacional de periodistas y programadores que colaboran para explorar nuevas formas de periodismo de datos.
+  <a href="acerca.htm" target="_self">Ver Mas...</a>
 	<p style="clearer"></p>
 </section>
 
