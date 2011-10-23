@@ -324,6 +324,16 @@ ul {
   }
 }
 
+div#diputado-sin-presidente {
+    $margin: 3px;
+    $width: 6px;
+    $height: 13px;
+    height: $height;
+    width: $width;
+    background: #ccc;
+    float:left;
+}
+
 #senadores {
   width: 250px;
   height: 100%;

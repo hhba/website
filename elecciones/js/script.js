@@ -96,27 +96,12 @@ var provincias = {
   "24": "Tierra del Fuego"
 }
 
-var tablaDont = {
-  '02': {
-    '0047' : 10,
-    '0131' : 3,
-    '0132' : 1
-  }
-  ,
-  '19': {
-    '0047' : 5,
-    '0131' : 2,
-    '0132' : 3
-  }
-}
-
-
 
 function fillSenadoresPercent(totalHeight){
   // totalHeight es del chart
   var verticalChart = {};
 
-  $.each(tablaDont, function(provincia, partidos){
+  $.each(dameTablaSenadores(), function(provincia, partidos){
     $.each(partidos, function(partido, bancas){
       if (!(partido in verticalChart))
         verticalChart[partido] = bancas;
@@ -136,9 +121,9 @@ function fillSenadoresPercent(totalHeight){
   })
 }
 
-function fillBancas(prefix){
+function fillBancas(prefix,tabla){
   // el prefix es del id del contenedor de bancas (a pintar)
-  $.each(tablaDont, function(provincia, partidos){
+  $.each(tabla, function(provincia, partidos){
     var i = 0; //posicion del cuadradito a pintar
     var bancaId = '#' + prefix +"-"+ provincia;
     var elementos = $(bancaId + " > *");
@@ -174,7 +159,13 @@ $(document).ready(function(){
     }
   });
 
-  fillSenadoresPercent(50);
-  fillBancas("bancas-senadores");
-  fillBancas("bancas-diputados");
+  $(document).bind("datosSenadoresCargados",function(){
+      fillSenadoresPercent(50);
+      fillBancas("bancas-senadores",dameTablaSenadores());
+    }
+  )
+  $(document).bind("datosDiputadosCargados",function(){
+      fillBancas("bancas-diputados",dameTablaDhontDiputados());
+  })
+
 });
