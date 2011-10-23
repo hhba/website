@@ -32,7 +32,6 @@ $(function() {
   map.setMapTypeId('plain');
 
   new google.maps.FusionTablesLayer({
-    suppressInfoWindows: true,
     map: map,
     query: {
       select: 'KML',
