@@ -21,16 +21,24 @@
                             return dictPerc;
                     }
 
+                    function sort_hash(hash){
+                        var k;
+                        var unsorted = [];
+                        for (k in hash) {
+                            unsorted.push([k,hash[k]])
+                        }
+                        var sorted = unsorted.sort(function(a,b){return parseFloat(a[1]) - parseFloat(b[1]);})
+                            return sorted
+                    }
                     function cb(res) {
                             var total = getTotales(res),
                                 perc = getPercentage(res, total);
                             for (key in perc) { 
                                 $("."+cargo+" .lista-"+Number(key)).html(perc[key] + " %" );
                             }
-
-                            $(document).trigger('onReadyDatosPresidente',{total: total, pct: perc}); //Terminamos de traer los datos de la Fusion del Presidente
+                            $(document).trigger('onReadyDatosPresidente',{total: total, pct: sort_hash(perc).reverse()}); //Terminamos de traer los datos de la Fusion del Presidente
                     }
-                    var sql = 'select '+ class_field +', sum('+content_field+') as votos from '+id+' group by ' + class_field;
+                    var sql = 'select '+ class_field +',  sum('+content_field+') as votos from '+id+' group by ' + class_field;
                     query(sql, cb);
             }
 

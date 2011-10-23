@@ -174,7 +174,6 @@ $(document).ready(function(){
 });
 
 function set_tooltips_from_class(){
-    console.log("UPD")
   $('[class*="lista-"]').each(function(n,el){
     var lista=el.className.split(" ").filter(function(e){ return e.indexOf("lista-") == 0 })[0]
     if(lista){
