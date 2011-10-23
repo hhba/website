@@ -140,12 +140,13 @@ function fillBancas(prefix,tabla){
 }
 
 $(document).ready(function(){
+/*    
   var $senadores = $('#senadores-chart');
 
   $.each(tablas.listas, function(key) {
     $senadores.append('<div id="senador-' + key + '" class="lista-' + key + '"> </div>');
   });
-
+*/
   var $ul = $('.diputados-bancas ul');
 
   $.each(cargosDiputados, function() {
