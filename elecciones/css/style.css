@@ -437,21 +437,20 @@ body > section {
   -ms-border-radius: 0 5px 5px 5px;
   -khtml-border-radius: 0 5px 5px 5px;
   border-radius: 0 5px 5px 5px;
-  border: 1px solid #000;
-  margin: 20px 0;
-  position: relative;
-  height: 600px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  border: 1px solid #000;
+  margin: 20px 0;
+  position: relative;
   padding-right: 400px;
 }
-/* line 251, ../../sass/style.scss */
+/* line 250, ../../sass/style.scss */
 body > section > h2 {
   margin: 0;
 }
-/* line 254, ../../sass/style.scss */
+/* line 253, ../../sass/style.scss */
 body > section > h2 span {
   background: #000;
   color: #fff;
@@ -460,7 +459,7 @@ body > section > h2 span {
   padding: 2px 8px;
 }
 
-/* line 264, ../../sass/style.scss */
+/* line 263, ../../sass/style.scss */
 #map {
   position: absolute;
   top: 0;
@@ -469,12 +468,17 @@ body > section > h2 span {
   height: 100%;
 }
 
-/* line 272, ../../sass/style.scss */
+/* line 271, ../../sass/style.scss */
 #map-container {
   height: 100%;
 }
 
-/* line 277, ../../sass/style.scss */
+/* line 275, ../../sass/style.scss */
+.two-col {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 278, ../../sass/style.scss */
 .two-col > * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -485,47 +489,47 @@ body > section > h2 span {
   width: 50%;
 }
 
-/* line 285, ../../sass/style.scss */
+/* line 286, ../../sass/style.scss */
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-/* line 291, ../../sass/style.scss */
+/* line 292, ../../sass/style.scss */
 #diputados {
   width: 500px;
-  padding-left: 10px;
+  padding-left: 15px;
 }
-/* line 296, ../../sass/style.scss */
+/* line 297, ../../sass/style.scss */
 #diputados ul li {
   overflow: hidden;
   *zoom: 1;
   clear: both;
   margin: 3px 0;
 }
-/* line 302, ../../sass/style.scss */
+/* line 303, ../../sass/style.scss */
 #diputados ul span {
   float: left;
   width: 100px;
 }
-/* line 307, ../../sass/style.scss */
+/* line 308, ../../sass/style.scss */
 #diputados ul div {
   float: left;
   height: 13px;
   width: 312px;
 }
-/* line 315, ../../sass/style.scss */
+/* line 316, ../../sass/style.scss */
 #diputados ul div div {
   width: 6px;
   background: #ccc;
 }
-/* line 319, ../../sass/style.scss */
+/* line 320, ../../sass/style.scss */
 #diputados ul div div:not(:last-child) {
   margin: 0 3px 0 0;
 }
 
-/* line 327, ../../sass/style.scss */
+/* line 328, ../../sass/style.scss */
 div#diputado-sin-presidente {
   height: 13px;
   width: 6px;
@@ -533,39 +537,45 @@ div#diputado-sin-presidente {
   float: left;
 }
 
-/* line 337, ../../sass/style.scss */
+/* line 338, ../../sass/style.scss */
+.diputados-bancas {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 342, ../../sass/style.scss */
 #senadores {
   width: 200px;
   height: 100%;
   position: relative;
 }
 
-/* line 343, ../../sass/style.scss */
+/* line 348, ../../sass/style.scss */
 #senadores-bancas {
   float: left;
   width: 150px;
 }
-/* line 348, ../../sass/style.scss */
+/* line 353, ../../sass/style.scss */
 #senadores-bancas ul li {
   margin: 3px 0;
 }
-/* line 352, ../../sass/style.scss */
+/* line 357, ../../sass/style.scss */
 #senadores-bancas ul div {
   float: left;
   height: 13px;
   width: 51px;
 }
-/* line 359, ../../sass/style.scss */
+/* line 364, ../../sass/style.scss */
 #senadores-bancas ul div div {
   width: 13px;
   background: #ccc;
 }
-/* line 363, ../../sass/style.scss */
+/* line 368, ../../sass/style.scss */
 #senadores-bancas ul div div:not(:last-child) {
   margin: 0 3px 0 0;
 }
 
-/* line 371, ../../sass/style.scss */
+/* line 376, ../../sass/style.scss */
 #senadores-chart {
   height: 150px;
   position: relative;
@@ -573,12 +583,22 @@ div#diputado-sin-presidente {
   float: left;
 }
 
+/* line 388, ../../sass/style.scss */
+#tendencia {
+  margin: 15px;
+}
+
+/* line 392, ../../sass/style.scss */
+#tendencia-chart {
+  height: 250px;
+}
+
 /* =============================================================================
    Non-semantic helper classes
    Please define your styles before this section.
    ========================================================================== */
 /* For image replacement */
-/* line 392, ../../sass/style.scss */
+/* line 402, ../../sass/style.scss */
 .ir {
   display: block;
   text-indent: -999em;
@@ -588,14 +608,14 @@ div#diputado-sin-presidente {
   direction: ltr;
 }
 
-/* line 393, ../../sass/style.scss */
+/* line 403, ../../sass/style.scss */
 .ir br {
   display: none;
 }
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
-/* line 397, ../../sass/style.scss */
+/* line 407, ../../sass/style.scss */
 .hidden {
   display: none;
   visibility: hidden;
@@ -603,7 +623,7 @@ div#diputado-sin-presidente {
 
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
-/* line 401, ../../sass/style.scss */
+/* line 411, ../../sass/style.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -616,7 +636,7 @@ div#diputado-sin-presidente {
 }
 
 /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
-/* line 404, ../../sass/style.scss */
+/* line 414, ../../sass/style.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   clip: auto;
   height: auto;
@@ -627,24 +647,24 @@ div#diputado-sin-presidente {
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
-/* line 407, ../../sass/style.scss */
+/* line 417, ../../sass/style.scss */
 .invisible {
   visibility: hidden;
 }
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
-/* line 410, ../../sass/style.scss */
+/* line 420, ../../sass/style.scss */
 .clearfix:before, .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 411, ../../sass/style.scss */
+/* line 421, ../../sass/style.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 412, ../../sass/style.scss */
+/* line 422, ../../sass/style.scss */
 .clearfix {
   zoom: 1;
 }
@@ -665,7 +685,7 @@ div#diputado-sin-presidente {
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 @media print {
-  /* line 439, ../../sass/style.scss */
+  /* line 449, ../../sass/style.scss */
   * {
     background: transparent !important;
     color: black !important;
@@ -675,46 +695,46 @@ div#diputado-sin-presidente {
   }
 
   /* Black prints faster: sanbeiji.com/archives/953 */
-  /* line 440, ../../sass/style.scss */
+  /* line 450, ../../sass/style.scss */
   a, a:visited {
     color: #444 !important;
     text-decoration: underline;
   }
 
-  /* line 441, ../../sass/style.scss */
+  /* line 451, ../../sass/style.scss */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-  /* line 442, ../../sass/style.scss */
+  /* line 452, ../../sass/style.scss */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-  /* line 443, ../../sass/style.scss */
+  /* line 453, ../../sass/style.scss */
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: "";
   }
 
   /* Don't show links for images, or javascript/internal links */
-  /* line 444, ../../sass/style.scss */
+  /* line 454, ../../sass/style.scss */
   pre, blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 445, ../../sass/style.scss */
+  /* line 455, ../../sass/style.scss */
   thead {
     display: table-header-group;
   }
 
   /* css-discuss.incutio.com/wiki/Printing_Tables */
-  /* line 446, ../../sass/style.scss */
+  /* line 456, ../../sass/style.scss */
   tr, img {
     page-break-inside: avoid;
   }
 
-  /* line 447, ../../sass/style.scss */
+  /* line 457, ../../sass/style.scss */
   img {
     max-width: 100% !important;
   }
@@ -723,13 +743,13 @@ div#diputado-sin-presidente {
     margin: 0.5cm;
 }
 
-  /* line 449, ../../sass/style.scss */
+  /* line 459, ../../sass/style.scss */
   p, h2, h3 {
     orphans: 3;
     widows: 3;
   }
 
-  /* line 450, ../../sass/style.scss */
+  /* line 460, ../../sass/style.scss */
   h2, h3 {
     page-break-after: avoid;
   }

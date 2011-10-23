@@ -10,12 +10,12 @@
 			url = url + encodeURIComponent(sql) + '&jsonCallback=?';
 			$.getJSON(url).success(callbackCargarDatosSenadores);
 			setTimeout("cargarDatosSenadores()", 300000);
-		}				
-		
-		setTimeout("cargarDatosSenadores()", 500);		
+		}
 
-		function callbackCargarDatosSenadores(response) { 
-			console.log(response.table);
+		setTimeout("cargarDatosSenadores()", 500);
+
+		function callbackCargarDatosSenadores(response) {
+			// console.log(response.table);
 
 			var rows = response.table.rows;
 			rows.splice(0,1);
@@ -33,24 +33,24 @@
 				}
 				var codigoDistritoString = formatString(codigoDistrito,2);
 				tablaSenadores[codigoDistritoString] = armarDatosSenadoresDistrito(votosDistrito, 3);
-			}			
-			
-			console.log(tablaSenadores);
+			}
+
+			// console.log(tablaSenadores);
 			$(document).trigger("datosSenadoresCargados");
 		}
-		
+
 		/*
 		 * Devuelve. Map. key = codigoAgrupacion. value=cant senadores que mete
-		 * Recibe 
+		 * Recibe
 		 * votosDistrito. Map. key = codigoAgrupacion. value=votosPositivos
 		 * numescs. cantidad de senadores totales a repartir
 		 */
 		function armarDatosSenadoresDistrito(votosDistrito, numescs) {
 				var numpartidos=votosDistrito.lenght;
-							
+
 				//Map. key = codigoAgrupacion. value=cant senadores que mete
-				var esc={}; 
-											
+				var esc={};
+
 				var codigoAgrupacionPrimera = "";
 				var codigoAgrupacionSegunda = "";
 				var cantidadVotosAgrupacionPrimera = 0;
@@ -61,22 +61,22 @@
 						cantidadVotosAgrupacionSegunda = cantidadVotosAgrupacionPrimera;
 						codigoAgrupacionSegunda = codigoAgrupacionPrimera;
 						cantidadVotosAgrupacionPrimera = votosDistrito[codigoAgrupacion];
-						codigoAgrupacionPrimera = codigoAgrupacion;						
+						codigoAgrupacionPrimera = codigoAgrupacion;
 					} else if (votosDistrito[codigoAgrupacion] > cantidadVotosAgrupacionSegunda) {
 						cantidadVotosAgrupacionSegunda = votosDistrito[codigoAgrupacion];
-						codigoAgrupacionSegunda = codigoAgrupacion;						
+						codigoAgrupacionSegunda = codigoAgrupacion;
 					}
 				}
-					
+
 				esc[codigoAgrupacionPrimera]=2;
 				esc[codigoAgrupacionSegunda]=1;
-								
-				return esc;
-			
-		}
-			
 
-		
+				return esc;
+
+		}
+
+
+
 		function formatString(number, digits){
 			var numberString = number.toString();
 			var originalNumberDigits = numberString.length;

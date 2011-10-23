@@ -7,7 +7,7 @@
             function completarPresidente(id, class_field, content_field, cargo) {
                     function getTotales(res) {
                             var total=0;
-                            for (var i=0; i < res.table.rows.length; i++) 
+                            for (var i=0; i < res.table.rows.length; i++)
                                     total+= parseInt(res.table.rows[i][1]);
 
                             return total;
@@ -15,17 +15,17 @@
 
                     function getPercentage(res, total) {
                             var dictPerc = {};
-                            for (var i=0; i < res.table.rows.length; i++) 
+                            for (var i=0; i < res.table.rows.length; i++)
                                     dictPerc[res.table.rows[i][0]] = (100 * parseInt(res.table.rows[i][1]) /  total).toFixed(2);
 
                             return dictPerc;
                     }
 
-                    function cb(res) { 
+                    function cb(res) {
                             var total = getTotales(res),
                                 perc = getPercentage(res, total);
 
-                            for (key in perc)  
+                            for (key in perc)
                                 $("."+cargo+" .lista-"+key).html(perc[key]);
 
                             $(document).trigger('onReadyDatosPresidente'); //Terminamos de traer los datos de la Fusion del Presidente
@@ -46,8 +46,8 @@
                 }
 
 
-                for (key in datosDict) { 
-                    console.log("."+cargo+" .lista-"+key," XX ",String(datosDict[key]))
+                for (key in datosDict) {
+                    // console.log("."+cargo+" .lista-"+key," XX ",String(datosDict[key]))
                         $("."+cargo+" .lista-"+key).html(String(datosDict[key]));
                 }
 
@@ -70,4 +70,4 @@
             alert(query)Legislativo     $.getJSON(query).success(function(res) {
                     console.log(res.table);
             });*/
-    
+
