@@ -7,7 +7,7 @@
             function completarPresidente(id, class_field, content_field, cargo) {
                     function getTotales(res) {
                             var total=0;
-                            for (var i=0; i < res.table.rows.length; i++) 
+                            for (var i=0; i < res.table.rows.length; i++)
                                     total+= parseInt(res.table.rows[i][1]);
 
                             return total;
@@ -15,13 +15,13 @@
 
                     function getPercentage(res, total) {
                             var dictPerc = {};
-                            for (var i=0; i < res.table.rows.length; i++) 
+                            for (var i=0; i < res.table.rows.length; i++)
                                     dictPerc[res.table.rows[i][0]] = (100 * parseInt(res.table.rows[i][1]) /  total).toFixed(2);
 
                             return dictPerc;
                     }
 
-                    function cb(res) { 
+                    function cb(res) {
                             var total = getTotales(res),
                                 perc = getPercentage(res, total);
                             for (key in perc)  
@@ -68,4 +68,4 @@
             alert(query)Legislativo     $.getJSON(query).success(function(res) {
                     console.log(res.table);
             });*/
-    
+

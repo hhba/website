@@ -13,7 +13,7 @@ set :use_sudo, false
 after :deploy, :assets
 
 task :assets, :roles => [:app] do
-  run "compass compile --css-dir=elecciones/css --sass-dir=sass"
+  # run "compass compile --css-dir=elecciones/css --sass-dir=sass"
 end
 
 # if you're still using the script/reaper helper you will need

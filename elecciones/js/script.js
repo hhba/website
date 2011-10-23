@@ -1,4 +1,4 @@
-window.onload = function() {
+$(function() {
 
   var options = {
     zoom: 4,
@@ -40,7 +40,7 @@ window.onload = function() {
     }
   });
 
-};
+});
 
 var cargosDiputados = [
   [35, "02"],
@@ -168,4 +168,137 @@ $(document).ready(function(){
       fillBancas("bancas-diputados",dameTablaDhontDiputados());
   })
 
+});
+
+var process = function (listas, series) {
+var x = 0,
+    $container = $('#tendencia-chart'),
+    r = Raphael($container.attr('id'), $container.innerWidth(), $container.innerHeight()),
+    labels = {},
+    textattr = {stroke: "none", fill: "#000"},
+    pathes = {};
+
+function finishes() {
+    for (var i in listas) {
+        var start, end;
+        for (var j = series.length - 1; j >= 0; j--) {
+            var isin = false;
+            for (var k = 0, kk = series[j].i.length; k < kk; k++) {
+                isin = isin || (series[j].i[k][0] == i);
+            }
+            if (isin) {
+                end = j;
+                break;
+            }
+        }
+        for (var j = 0, jj = series.length; j < jj; j++) {
+            var isin = false;
+            for (var k = 0, kk = series[j].i.length; k < kk; k++) {
+                isin = isin || (series[j].i[k][0] == i);
+            };
+            if (isin) {
+                start = j;
+                break;
+            }
+        }
+        for (var j = start, jj = end; j < jj; j++) {
+            var isin = false;
+            for (var k = 0, kk = series[j].i.length; k < kk; k++) {
+                isin = isin || (series[j].i[k][0] == i);
+            }
+            if (!isin) {
+                series[j].i.push([i, 0]);
+            }
+        }
+    }
+}
+
+function block() {
+    var p, h;
+    finishes();
+    for (var j = 0, jj = series.length; j < jj; j++) {
+        var users = series[j].i;
+        h = 0;
+        for (var i = 0, ii = users.length; i < ii; i++) {
+            p = pathes[users[i][0]];
+            if (!p) {
+                p = pathes[users[i][0]] = {f:[], b:[], c:null};
+            }
+            p.f.push([x, h, parseInt(users[i][1] * 100) + '%']);
+            var hh = Math.round((r.height - 15 - users.length * 2) * users[i][1]);
+            p.b.unshift([x, h += hh]);
+            p.c = listas[users[i][0]].color;
+            // h += 2;
+            h += 1;
+        }
+        var dtext = series[j].d;
+        r.text(x + 25, h + 10, dtext).attr({stroke: "none", fill: "#aaa"});
+        x += 100;
+    }
+    var c = 0;
+    for (var i in pathes) {
+        labels[i] = r.set();
+        var clr = pathes[i].c;
+        pathes[i].p = r.path().attr({fill: clr, stroke: clr});
+        var path = "M".concat(pathes[i].f[0][0], ",", pathes[i].f[0][1], "L", pathes[i].f[0][0] + 50, ",", pathes[i].f[0][1]);
+        var th = Math.round(pathes[i].f[0][1] + (pathes[i].b[pathes[i].b.length - 1][1] - pathes[i].f[0][1]) / 2);
+        labels[i].push(r.text(pathes[i].f[0][0] + 25, th, pathes[i].f[0][2]).attr(textattr));
+        var X = pathes[i].f[0][0] + 50,
+            Y = pathes[i].f[0][1];
+        for (var j = 1, jj = pathes[i].f.length; j < jj; j++) {
+            path = path.concat("C", X + 20, ",", Y, ",");
+            X = pathes[i].f[j][0];
+            Y = pathes[i].f[j][1];
+            path = path.concat(X - 20, ",", Y, ",", X, ",", Y, "L", X += 50, ",", Y);
+            th = Math.round(Y + (pathes[i].b[pathes[i].b.length - 1 - j][1] - Y) / 2);
+            if (th - 6 > Y) {
+                labels[i].push(r.text(X - 25, th, pathes[i].f[j][2]).attr(textattr));
+            }
+        }
+        path = path.concat("L", pathes[i].b[0][0] + 50, ",", pathes[i].b[0][1], ",", pathes[i].b[0][0], ",", pathes[i].b[0][1]);
+        for (var j = 1, jj = pathes[i].b.length; j < jj; j++) {
+            path = path.concat("C", pathes[i].b[j][0] + 70, ",", pathes[i].b[j - 1][1], ",", pathes[i].b[j][0] + 70, ",", pathes[i].b[j][1], ",", pathes[i].b[j][0] + 50, ",", pathes[i].b[j][1], "L", pathes[i].b[j][0], ",", pathes[i].b[j][1]);
+        }
+        pathes[i].p.attr({path: path + "z"});
+        labels[i].hide();
+        var current = null;
+        (function (i) {
+            pathes[i].p.mouseover(function () {
+                if (current != null) {
+                    labels[current].hide();
+                }
+                current = i;
+                labels[i].show();
+                pathes[i].p.toFront();
+                labels[i].toFront();
+            });
+        })(i);
+    }
+}
+block();
+};
+
+$(function () {
+  var series = [];
+
+  query("select 'fecha_carga', 'cod_agrupacion', 'votos_pct' from 1932057", function(res) {
+    var rows = res.table.rows;
+    var last_fecha_carga;
+    var bucket;
+
+    for (var j = 0; j < rows.length; j++) {
+      var row = rows[j];
+
+      if (last_fecha_carga != row[0]) {
+        bucket = {d: row[0].match(/ \d{2}:\d{2}/), i: []};
+        series.push(bucket);
+      }
+
+      bucket.i.push([row[1], row[2] / 100]);
+
+      last_fecha_carga = row[0];
+    }
+
+    process(tablas.listas, series);
+  });
 });

@@ -241,11 +241,10 @@ h1, h2, h3 {
 
 body > section {
   @include border-radius(0 5px 5px 5px);
+  @include box-sizing(border-box);
   border: 1px solid #000;
   margin: 20px 0;
   position: relative;
-  height: 600px;
-  @include box-sizing(border-box);
   padding-right: 400px;
 
   > h2 {
@@ -274,6 +273,8 @@ body > section {
 }
 
 .two-col {
+  @include clearfix;
+
   > * {
     @include box-sizing(border-box);
     float: left;
@@ -289,8 +290,8 @@ ul {
 }
 
 #diputados {
-  width: 550px;
-  padding-left: 10px;
+  width: 500px;
+  padding-left: 15px;
 
   ul {
     li {
@@ -310,7 +311,7 @@ ul {
       $height: 13px;
       float: left;
       height: $height;
-      width: $width * 35 + 34 * $margin * 2;
+      width: $width * 35 + 34 * $margin;
 
       div {
         width: $width;
@@ -334,8 +335,12 @@ div#diputado-sin-presidente {
     float:left;
 }
 
+.diputados-bancas {
+  @include clearfix;
+}
+
 #senadores {
-  width: 250px;
+  width: 200px;
   height: 100%;
   position: relative;
 }
@@ -380,8 +385,13 @@ div#diputado-sin-presidente {
   }
 }
 
+#tendencia {
+  margin: 15px;
+}
 
-
+#tendencia-chart {
+  height: 250px;
+}
 
 /* =============================================================================
    Non-semantic helper classes

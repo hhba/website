@@ -12,12 +12,12 @@
 			url = url + encodeURIComponent(sql) + '&jsonCallback=?';
 			$.getJSON(url).success(callbackCargarDatosDiputados);
     	setTimeout("cargarDatosDiputados()", 300000);
-		}				
-  	
-		setTimeout("cargarDatosDiputados()", 500);		
+		}
 
-		function callbackCargarDatosDiputados(response) { 
-			console.log(response.table);
+		setTimeout("cargarDatosDiputados()", 500);
+
+		function callbackCargarDatosDiputados(response) {
+			// console.log(response.table);
 
 			var rows = response.table.rows;
 			rows.splice(0,1);
@@ -35,30 +35,30 @@
 				}
 				var codigoDistritoString = formatString(codigoDistrito,2);
 				tablaDhontDiputados[codigoDistritoString] = armarDhontDistrito(votosDistrito, cantidadDiputadosPorDistrito(codigoDistritoString));
-			}			
-			
-			console.log(tablaDhontDiputados);
+			}
+
+			// console.log(tablaDhontDiputados);
 			$(document).trigger("datosDiputadosCargados");
 		}
-		
+
 		/*
 		 * Devuelve. Map. key = codigoAgrupacion. value=cant diputados que mete
-		 * Recibe 
+		 * Recibe
 		 * votosDistrito. Map. key = codigoAgrupacion. value=votosPositivos
 		 * numescs. cantidad de diputados totales a repartir
 		 */
-  
+
     function armarDhontDistrito(votosDistrito, numescs) {
                 var numpartidos=votosDistrito.lenght;
-                            
+
                 //Map. key = codigoAgrupacion. value=cant diputados que mete
-                var esc={}; 
-                            
-            
+                var esc={};
+
+
                 for (codigoAgrupacion in votosDistrito) {
                     esc[codigoAgrupacion]=0;
                 }
-                
+
                 var totalVotosPositivos = 0;
                 for (codigoAgrupacion in votosDistrito) {
                     totalVotosPositivos = totalVotosPositivos + votosDistrito[codigoAgrupacion];
@@ -67,7 +67,7 @@
                 for (var ct=0; ct<numescs; ct++) {
                     var codigoAgrupacionMax=0;
                     var cantVotosMax=0;
-            
+
                     for (codigoAgrupacion in votosDistrito) {
                             if( cantVotosMax<(votosDistrito[codigoAgrupacion]/(esc[codigoAgrupacion]+1)) &&
                                     votosDistrito[codigoAgrupacion]> totalVotosPositivos*0.04 ) {
@@ -76,13 +76,13 @@
                             }
                     }
                     esc[codigoAgrupacionMax]++;
-                    
+
                 }
-                
+
                 return esc;
-            
+
         }
-			
+
 
 		function cantidadDiputadosPorDistrito(codigoDistrito) {
 			var mapa = {
@@ -112,10 +112,10 @@
 				"24":3
 			}
 			return mapa[codigoDistrito];
-			
-		}	
-		
-		
+
+		}
+
+
 		function formatString(number, digits){
 			var numberString = number.toString();
 			var originalNumberDigits = numberString.length;
