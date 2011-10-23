@@ -1,38 +1,31 @@
 <!doctype html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-	<title>Elecciones 2011 - Reiniciando el periodismo en tiempo real - Hacks/Hackers Buenos Aires</title>
-		
-
-	<style>
-	</style>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script type="text/javascript">
-		var tablaPresidentes = new Array(); //lo necesitamos ordeando de mayor porcentaje a menor
-		tablaPresidentes[0] = {'codigo': 'cogido1', 'nombre': 'cris', 'porcentaje': 40};
-		tablaPresidentes[1] = {'codigo': 'cogido2', 'nombre': 'otro', 'porcentaje': 60};
-		
+               var tablaPresidentes = [];
+					//lo necesitamos ordeando de mayor porcentaje a menor
+               tablaPresidentes[0] = {'codigo': 'cogido1', 'nombre': 'cris', 'porcentaje': 40};
+               tablaPresidentes[1] = {'codigo': 'cogido2', 'nombre': 'otro', 'porcentaje': 60};
+               
 
-		
-		function fillPresidentes(prefix, tabla){
-			var $presidentes = $("#"+ prefix + " > *");
-			$.each(tabla, function(index, data){
-				(presidentes[index]).children(".presidente-nombre").text(data['nombre']);
-			});
+               
+               function fillPresidentes(prefix, tabla){
+                       var presidentes = "#" + prefix;
+                       $.each(tabla, function(index, data){
+                           $(presidentes).prepend("<li>" + data.nombre + ": " + data.porcentaje + "</li>");
+                       });
 
- 		}		
-		
-		fillPresidentes("presidentes", tablaPresidentes);
-	</script>
-	
+                }                
+               
+               fillPresidentes("presidentes", tablaPresidentes);
+</script>
 </head>
 <body>
 	<ol id="presidentes">
-	<li><span class= "presidente-nombre"></span><span class="presidente-porcentaje">	</span></li>
-	<li><span class= "presidente-nombre"></span><span class="presidente-porcentaje">	</span></li>
+
+
+
 	</ol>
 </body>
 </html>
