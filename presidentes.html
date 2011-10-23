@@ -16,8 +16,8 @@
 								var nombre, porcentaje;
 								$.each(tabla, function(index, presidente){
 									nombre =  (listas[presidente[0]]).nombre;
-									porcentaje = presidente[1]
-									$(presidentes).prepend("<li>" +nombre + ": "+ porcentaje  + "</li>");				
+									porcentaje = presidente[1];
+									$(presidentes).prepend("<li><span>" +nombre + "</span> : "+ porcentaje  + "%</li>");				
 								});
                 		});               
 
@@ -33,9 +33,6 @@
 </head>
 <body>
 	<ol id="presidentes">
-
-
-
 	</ol>
 </body>
 </html>
