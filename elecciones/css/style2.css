@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+body, button, input, select, textarea {
+  font-family: 'Terminal Dosis';
+  color: #222;
+}
+
+::selection {
+  background: #CCC;
+  color: #fff;
+  text-shadow: none;
+}
+
+
+.clearer {
+ clear: both;
+ height: 0;
+ line-height: 0;
+ margin: 0;
+ padding: 0;
+ font-size: 0;
+}
+
+
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+
+
+/* =============================================================================
+
+COLORES NUEVOS CORRESPONDEN A BLOG ANDY TOW // NOMBRES
+   ========================================================================== */
+
+/* KIRSCHNER */
+.lista-131, .lista-0131 {
+  background: #6666FF!important;
+}
+
+/* CARRIO*/
+.lista-47, .lista-0047 {
+  background: #FFFF33!important;
+}
+
+
+/* ALFONSIN */
+.lista-137, .lista-0137 {
+  background: #FF6666!important;
+}
+
+
+/* DUHALDE */
+.lista-132, .lista-0132 {
+  background: #66CC66!important;
+}
+
+
+/* SAA */
+.lista-133, .lista-0133 {
+  background: #66FFFF!important;
+}
+
+
+/* BINNER */
+.lista-134, .lista-0134 {
+  background: #FF66CC!important;
+}
+
+
+/* ALTAMIRA */
+.lista-135, .lista-0135 {
+  background: #FF9966!important;
+}
+
+@font-face {
+	font-family: 'Terminal Dosis', sans-serif;
+/*  
+REEMPLAZO POR WEBFONT DE GOOGLE (ruso)
+font-family: 'Helvetica Rounded LT Condensed';
+  src: url("helvetica-rounded.ttf") format("truetype");*/
+}
+
+
+.logo {
+	font-family: 'Terminal Dosis', sans-serif;
+	font-weight:normal;
+	z-index:10;
+	text-transform: uppercase;
+	font-size: 28px;
+	line-height: 28px;
+	float:left;
+}
+
+.logo h1 {
+  font-size: 72px;
+  line-height: 72px;
+  margin: 0;
+  font-weight:800;
+}
+
+
+/* line 234, ../sass/style.scss */
+h2, h3 {
+  font-family: 'Terminal Dosis', sans-serif;
+  text-transform: uppercase;
+}
+h1 {
+  font-family: 'Terminal Dosis', sans-serif;
+  text-transform: uppercase;
+}
+
+#diputados {
+  width: 550px;
+  padding-left: 10px;
+}
+
+#diputados ul div {
+  float: left;
+  height: 18px;
+  width: 414px;
+}
+
+#headsup{
+  -moz-border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  -o-border-radius: 0 5px 5px 5px;
+  -ms-border-radius: 0 5px 5px 5px;
+  -khtml-border-radius: 0 5px 5px 5px;
+  border-radius: 0 5px 5px 5px;
+  border: 1px solid #000;
+  margin: 0 0 0 15px;
+  position: relative;
+  height: 100px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  float:left;
+  width:400px;
+}
+#headsup > h2 {
+  margin: 0;
+  font-size:14px;	
+}
+/* line 254, ../sass/style.scss */
+#headsup > h2 span {
+  top:0px;
+  font-size:14px;
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 2px 8px;
+}
+
+#diputados ul div div {
+	width: 7px;
+}
+
+header {
+
+}
