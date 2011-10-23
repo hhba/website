@@ -210,5 +210,379 @@
 	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
 <![endif]-->
 
+
+
+<!-- =============================================================================== -->
+<!-- ===========AQUI EMPIEZA CODIGO PARA TOOLTIP============== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+
+<script src="http://jquery.bassistance.de/tooltip/lib/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/lib/jquery.dimensions.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/jquery.tooltip.js" type="text/javascript"></script>
+
+<style>
+	.tooltipLista {
+		padding-right:6px; 
+		background:white;
+		width: 440px;
+	}
+
+.tooltipLista {
+  -moz-border-radius: 0 5px 5px 5px; -webkit-border-radius: 0 5px 5px 5px;  -o-border-radius: 0 5px 5px 5px; -ms-border-radius: 0 5px 5px 5px;  -khtml-border-radius: 0 5px 5px 5px; border-radius: 0 5px 5px 5px;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;
+ -moz-box-shadow: 5px 5px 5px #333; -webkit-box-shadow: 5px 5px 5px #333;  box-shadow: 5px 5px 5px #333;
+  border: 1px solid #000;
+}
+.tooltipLista  h2 {
+  margin: 0;
+}
+.tooltipLista  h2 span {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  font-size: 1em;
+  padding: 2px 8px;
+}
+
+			
+			small {
+				color:#555;
+				margin-top:10px;
+			}
+
+		.fondoGris{
+				width: 100%;
+				height: 28px;
+				background-color: #eee;
+				position: relative;
+				font-size: 18px;	
+				margin-bottom:6px;	
+				font-weight:800;			
+		}
+		.paso {
+			height:14px;
+			font-size:10px;
+			margin-bottom:2px;
+			}
+		.presi{
+			height:14px;
+			font-size:10px;
+		}
+		.textLeft { 
+				position: absolute;
+				left: 4px;
+				top: 3px; 
+		}
+		.textRight { position: absolute; right: 4px; top: 3px; }
+
+		.fill { float: left; height: 100%; }
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+}
+	</style>
+
+		              <!--  ESTO ES EL CONTENEDOR DE LOS 7 TOOLTIPS -->
+<div id="tooltipsContainer" style="display:none;">
+
+		              <!--  Aqui van cada uno de los tooltips -->
+    <!--  LISTA 137 - UCR -->                  
+	<section id="tooltip-lista-137" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-UnionParaElDesarrolloSocial.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">UCR | UDeSo</h2>
+			    <h3 style="display:inline;">Coalición: Union por el Desarrollo Social</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Ricardo Alfonsin</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Javier González Fraga</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0137" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+    <!--  LISTA 131 - FPV -->                  
+    <section id="tooltip-lista-131" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteparalaVictoria.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | FpV</h2>
+			    <h3 style="display:inline;">Coalición: Frente para la Victoria</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Cristina Fernandez de Kirchner</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Amado Boudou</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE <span class='pct_presidente'></span></div>
+					<div class="fill lista-0131" class='barra_presidente' style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+    <!--  LISTA 047 - ARI -->                  
+    <section id="tooltip-lista-47" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-CoalicionCivica.jpg"  height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">ARI | CC</h2>
+			    <h3 style="display:inline;">Coalición Cívica ARI</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Elisa Carrio</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Adrián Pérez</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0047" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+
+	</section>
+    
+   <!--  LISTA 132 - UP -->                  
+    <section id="tooltip-lista-132" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenePopular.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | UP</h2>
+			    <h3 style="display:inline;">Coalición Unión Popular</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Eduardo Duhalde</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Mario Das Neves</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0132" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+   <!--  LISTA 133 - saa -->                  
+    <section id="tooltip-lista-133" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-Compromiso-federal.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | CF</h2>
+			    <h3 style="display:inline;">Coalición: Compromiso Federal</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Alberto Rodriguez Saá</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>José María Vernet</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+					<div class="fill lista-0133" style="width: 20%;"></div>
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0133" style="width: 20%;"></div>
+			</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+    
+    <!--  LISTA 134 - FAP -->                  
+    <section id="tooltip-lista-134" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteAmplioProgresista.jpg"  height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PS | FAP</h2>
+			    <h3 style="display:inline;">Coalición: Frente Amplio Progresista</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Hermes Binner</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Norma Morandini</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0134" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+    <!--  LISTA 135 - FI -->                  
+    <section id="tooltip-lista-135" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteIzquierda.jpg" width="150px" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PO | FIT</h2>
+			    <h3 style="display:inline;">Coalición: Frente de Izquierda y de los Trabajadores</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Jorge Altamira</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Christian Castillo</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft" >PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0135" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+    
+ </div>
+ 
+<script type="text/javascript">
+/*
+hay que agregar al creador de cuadraditos (diputados y senadores) que yame a esto cuando termine de crearlo/relodearlo
+$(element).tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltipLista133").clone();
+     } 
+ });
+
+*/
+$(document).bind('onReadyDatosPresidente',function(e,res){
+        $(res.pct).each(function(n,resultado){
+            $("#tooltip-lista-"+resultado[0]+" .pct_presidente").text(resultado[1] + "%")
+            $("#tooltip-lista-"+resultado[0]+" .barra_presidente").css("width",resultado[1] + "%")
+        })
+
+     })
+ $('.lista-47, .lista-0047').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-47").clone();
+     } 
+ });
+ $('.lista-131, .lista-0131').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+     console.log("131!")
+         return $("#tooltip-lista-131").clone();
+     } 
+ });
+ $('.lista-132, .lista-0132').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-132").clone();
+     } 
+ });
+ $('.lista-133, .lista-0133').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-133").clone();
+     } 
+ });
+ $('.lista-134, .lista-0134').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-134").clone();
+     } 
+ });
+ $('.lista-135, .lista-0135').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-135").clone();
+     } 
+ });
+
+ $('.lista-137, .lista-0137').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-137").clone();
+     } 
+ });
+
+</script>
+
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+
 </body>
 </html>

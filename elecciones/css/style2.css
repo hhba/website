@@ -164,6 +164,12 @@ h1 {
 	width: 7px;
 }
 
-header {
-
+#headsup table {
+	border-bottom-width:white 2px;
+	border-collapse:separate;
+}
+	
+	
+h3{
+	font-weight:800;
 }
