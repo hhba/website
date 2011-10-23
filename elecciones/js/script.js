@@ -136,6 +136,7 @@ function fillBancas(prefix,tabla){
     });
 
   });
+  $(document).trigger("updated")
 }
 
 $(document).ready(function(){
@@ -168,7 +169,20 @@ $(document).ready(function(){
       fillBancas("bancas-diputados",dameTablaDhontDiputados());
   })
 
+
 });
+
+function set_tooltips_from_class(){
+    console.log("UPD")
+  $('[class*="lista-"]').each(function(n,el){
+    var lista=el.className.split(" ").filter(function(e){ return e.indexOf("lista-") == 0 })[0]
+    if(lista){
+        $(el).attr("title","Aca debería haber un buen tooltip para la :"+lista);
+    }
+  })
+
+}
+$(document).bind("updated",set_tooltips_from_class)
 
 var process = function (listas, series) {
 var x = 0,
