@@ -1,0 +1,56 @@
+<html>
+    <body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <div  style='width:100%; height:100%'>
+        <div id='map-container' style='width:100%; height:98%'></div>
+        <a style='font-family: helvetica' href='http://elecciones.hhba.info'>Fuente: HHBA - Elecciones 2011</a>
+    </div>
+
+<script src='//maps.google.com/maps/api/js?sensor=false'></script>
+<script>
+
+$(function() {
+  var options = {
+    zoom: 4,
+    panControl: false,
+    streetViewControl: false,
+    mapTypeControl: false,
+    // maxZoom: 16,
+    // minZoom: 5,
+    // mapTypeId: 'ubime',
+    mapTypeId: 'roadmap',
+    zoomControl: false,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    center: new google.maps.LatLng(-38.416097, -63.616672)
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-container'), options);
+
+  map.mapTypes.set('plain', new google.maps.StyledMapType([
+    { featureType: "landscape", stylers: [ { visibility: "off" } ] },
+    { featureType: "road", stylers: [ { visibility: "off" } ] },
+    { featureType: "water", stylers: [ { visibility: "on" }, { lightness: 100 }] },
+    { featureType: "transit", stylers: [ { visibility: "off" } ] },
+    { featureType: "administrative", elementType: "labels", stylers: [ { visibility: "off" } ] },
+    { featureType: "landscape", stylers: [ { visibility: "off" } ] },
+    { featureType: "landscape.natural", stylers: [ { visibility: "off" } ] },
+    { featureType: "administrative.country", stylers: [ { lightness: 99 }, { visibility: "off" } ] }
+  ]));
+
+  map.setMapTypeId('plain');
+
+  new google.maps.FusionTablesLayer({
+    suppressInfoWindows: true,
+    map: map,
+    query: {
+      select: 'KML',
+      from: 1932698
+    }
+  });
+
+});
+</script>
+</html>
+</body>

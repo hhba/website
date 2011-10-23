@@ -140,12 +140,13 @@ function fillBancas(prefix,tabla){
 }
 
 $(document).ready(function(){
+/*    
   var $senadores = $('#senadores-chart');
 
   $.each(tablas.listas, function(key) {
     $senadores.append('<div id="senador-' + key + '" class="lista-' + key + '"> </div>');
   });
-
+*/
   var $ul = $('.diputados-bancas ul');
 
   $.each(cargosDiputados, function() {
@@ -173,7 +174,6 @@ $(document).ready(function(){
 });
 
 function set_tooltips_from_class(){
-    console.log("UPD")
   $('[class*="lista-"]').each(function(n,el){
     var lista=el.className.split(" ").filter(function(e){ return e.indexOf("lista-") == 0 })[0]
     if(lista){
