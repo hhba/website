@@ -1,0 +1,531 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Hack Electoral en tiempo real = Acerca de...</title>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style2.css">
+  <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis:600,800' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<header>
+  <div class='logo'>
+    <h1>Elecciones 2011</h1>
+    Hack Electoral en tiempo real
+  </div>
+  <div id="headsup">
+      <h2><span>LO PRINCIPAL</span><div style="display:inline;">Escrutinio actual: 12%</div></h2>
+           <table style='width:100%'>
+             <tr class='presidente'>
+               <td> Presidente </td>
+               <td class='lista-131'></td>
+               <td class='lista-47'></td>
+               <td class='lista-137'></td>
+               <td class='lista-132'></td>
+               <td class='lista-133'></td>
+               <td class='lista-134'></td>
+               <td class='lista-135'></td>
+             </tr>
+             <tr class='diputados'>
+               <td> Diputados </td>
+               <td class='lista-131'></td>
+               <td class='lista-47'></td>
+               <td class='lista-137'></td>
+               <td class='lista-132'></td>
+               <td class='lista-133'></td>
+               <td class='lista-134'></td>
+               <td class='lista-135'></td>
+             </tr>
+             <tr class='senadores'>
+               <td> Senadores </td>
+               <td class='lista-131'></td>
+               <td class='lista-47'></td>
+               <td class='lista-137'></td>
+               <td class='lista-132'></td>
+               <td class='lista-133'></td>
+               <td class='lista-134'></td>
+               <td class='lista-135'></td>
+             </tr>
+           </table>
+  </div>
+  <a href="http://www.meetup.com/HacksHackersBA/" target="_blank"><img src="http://photos4.meetupstatic.com/photos/event/6/8/b/b/global_22346811.jpeg" border="0" alt="HACKS/HACKERS BUENOS AIRES" style="float:right"></a>
+  <p class="clearer"></p>
+         <div style="margin:8px 0 8px 0; font-size:14px">Mapas temáticos de las primarias presidenciales 2011, de las elecciones presidenciales 2007 y otros ilustrativos de variables socio demográficas<br/>
+     <b>Luego de las 9pm</b>, los mapas se actualizarán en tiempo real con los datos del escrutinio provisorio oficial y resúmenes nacionales de las elecciones del Ejecutivo y Legislativo.</div>
+  <p class="clearer"></p>
+</header>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/senadores.js"></script>
+<script src="js/diputados-dhont.js"></script>
+<script src="js/presidente.js"></script>
+<script src='//maps.google.com/maps/api/js?sensor=false'></script>
+<script src='http://github.com/DmitryBaranovskiy/raphael/raw/master/raphael-min.js'></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+<script src="js/plugins.js"></script>
+<script src="js/static.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-26487214-1']);
+    _gaq.push(['_setDomainName', 'hhba.info']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+
+
+<!-- =============================================================================== -->
+<!-- ===========AQUI EMPIEZA CODIGO PARA TOOLTIP============== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+<!-- =============================================================================== -->
+
+<script src="http://jquery.bassistance.de/tooltip/lib/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/lib/jquery.dimensions.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/jquery.tooltip.js" type="text/javascript"></script>
+
+<style>
+	.tooltipLista {
+		padding-right:6px; 
+		background:white;
+		width: 440px;
+	}
+
+.tooltipLista {
+  -moz-border-radius: 0 5px 5px 5px; -webkit-border-radius: 0 5px 5px 5px;  -o-border-radius: 0 5px 5px 5px; -ms-border-radius: 0 5px 5px 5px;  -khtml-border-radius: 0 5px 5px 5px; border-radius: 0 5px 5px 5px;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;
+ -moz-box-shadow: 5px 5px 5px #333; -webkit-box-shadow: 5px 5px 5px #333;  box-shadow: 5px 5px 5px #333;
+  border: 1px solid #000;
+}
+.tooltipLista  h2 {
+  margin: 0;
+}
+.tooltipLista  h2 span {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  font-size: 1em;
+  padding: 2px 8px;
+}
+
+			
+			small {
+				color:#555;
+				margin-top:10px;
+			}
+
+		.fondoGris{
+				width: 100%;
+				height: 28px;
+				background-color: #eee;
+				position: relative;
+				font-size: 18px;	
+				margin-bottom:6px;	
+				font-weight:800;			
+		}
+		.paso {
+			height:14px;
+			font-size:10px;
+			margin-bottom:2px;
+			}
+		.presi{
+			height:14px;
+			font-size:10px;
+		}
+		.textLeft { 
+				position: absolute;
+				left: 4px;
+				top: 3px; 
+		}
+		.textRight { position: absolute; right: 4px; top: 3px; }
+
+		.fill { float: left; height: 100%; }
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+}
+	</style>
+
+		              <!--  ESTO ES EL CONTENEDOR DE LOS 7 TOOLTIPS -->
+<div id="tooltipsContainer" style="display:none;">
+
+		              <!--  Aqui van cada uno de los tooltips -->
+    <!--  LISTA 137 - UCR -->                  
+	<section id="tooltip-lista-137" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-UnionParaElDesarrolloSocial.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">UCR | UDeSo</h2>
+			    <h3 style="display:inline;">Coalición: Union por el Desarrollo Social</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Ricardo Alfonsin</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Javier González Fraga</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0137" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+    <!--  LISTA 131 - FPV -->                  
+    <section id="tooltip-lista-131" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteparalaVictoria.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | FpV</h2>
+			    <h3 style="display:inline;">Coalición: Frente para la Victoria</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Cristina Fernandez de Kirchner</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Amado Boudou</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE <span class='pct_presidente'></span></div>
+					<div class="fill lista-0131" class='barra_presidente' style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	  <div><span id="internal-source-marker_0.95247021317482">&lt;Para el sitio web : 1º versión en castellano, después versión en inglés&gt;</span><br>
+	    Elecciones 2011. Hack Electoral en tiempo real <br>
+	    <br>
+	    &lt;Acerca de&gt;<br>
+	    Hack Electoral es un entorno web de análisis político que ilustra en tiempo real a partir de datos oficiales los resultados del escrutinio provisorio de las elecciones del 23 de octubre y facilita diversos planos de análisis. El sistema cuenta con una selección de información de elecciones anteriores y estadísticas socio demográficas de todo el país. <br>
+	    <br>
+	    Hack Electoral es una iniciativa de Hacks/Hackers Buenos Aires con Andy Tow, y es el resultado del trabajo mancomunado y voluntario de los miembros del capítulo local de Hacks/Hackers (periodistas, programadores, diseñadores, analistas, politólogos, etc.).<br>
+	    <br>
+	    ¿Qué datos utiliza?<br>
+	    Toda la información publicada proviene de fuentes oficiales. En particular, la Dirección Nacional Electoral facilitó el acceso a los datos en bruto del recuento provisorio realizado por INDRA; el Ministerio del Interior brindó la información acerca de los cargos electivos y candidatos de los distintos partidos políticos; el proyecto universitario <a href="http://yoquierosaber.org/">yoquierosaber.org/</a> aportó la información biográfica y las plataformas políticas de cada fórmula presidencial; y toda la data socio demográfica proviene del Censo Nacional de Población y Vivienda 2001 (INDEC-CNPV01), a excepción de los totales de población que corresponden al Censo 2010 (INDEC-CNPV10). <br>
+	    <br>
+	    ¿Cómo se desarrolló?<br>
+	    La aplicación ha sido generada durante el Hackatón Elecciones 2011 de Hacks/Hackers Buenos Aires el día anterior a los comicios, una jornada de trabajo y programación con la colaboración de 30 especialistas voluntarios. Hack Electoral está desarrollado como una plataforma abierta para que cualquier interesado pueda introducir mejoras con el correr del tiempo. Como herramientas tecnológicas utilizamos <a href="about:blank">desarrollos propios</a> que integran tablas de <a href="about:blank">Google Fusion Tables</a>, mapas vectoriales y librerías gráficas, etc.<br>
+	    <br>
+	    ¿Por qué hacemos esto? <br>
+	    Porque creemos que es necesario facilitar el acceso a la información pública electoral de manera contextualizada y fomentar estas prácticas; y porque alentamos la promoción de casos de periodismo de datos.<br>
+	    <br>
+	    &lt;Quiénes somos&gt;<br>
+	    El capítulo Hacks/Hackers Buenos Aires reunió para este proyecto al blogger politólogo Andy Tow &lt;<a href="http://towsa.com/andy">http://towsa.com/andy</a>&gt; y al politólogo Hilario Moreno del Campo -de la consultora de opinión pública Dicen- para desarrollar junto a periodistas, cientistas sociales, programadores y diseñadores gráficos un innovador sistema de información.<br>
+	    <br>
+	    Participaron sobre una idea de Sergio Sorin: Andy Tow – Andrés Snitcofsky - Catalina Marino - César Miquel - Damián Janowski - Ezequiel Clerici - Federico Ricciardi - Fernanda Roux - Florencia Coelho - Guido Labonia - Guillermo Movia - Hilario Moreno del Campo - Juan Pablo Renzi - Kevin Hanna - Lucas Aznar - Luis E. Guardiola - Mariana Berruezo - Mariano Mancuso - Martín Sarsale - Momi Peralta Ramos - Nicolás Cisco - Oscar Guindzberg - Sebastián Álvarez – Sebastián Meléndez - Soledad Gherardi - Tania Wassaf  - Valeria Bula - Mariano Blejman.<br>
+	    <br>
+	    ¿Qué es Hacks/Hackers Buenos Aires?<br>
+	    En abril de este año se abrió en <a href="http://meetupba.hackshackers.com/">Buenos Aires</a> el capítulo local de <a href="http://www.hackshackers.com/">Hacks/Hackers</a>, un espacio de encuentro conformado por periodistas, programadores de software y profesionales del sector IT que se reúnen para colaborar en la construcción del futuro de los medios de comunicación. El capítulo forma parte de una organización en crecimiento que tuvo su primer encuentro en San Francisco en noviembre de 2009 y ahora tiene miles de miembros en todo el mundo. Hacks/Hackers es el mejor espacio de "networking" a nivel mundial para encontrar relaciones, productos, servicios e ideas entre periodistas y tecnólogos de todo el mundo, creado por Burt Herman (Storify.com) y Aron Pilhofer (The New York Times).<br>
+	    <br>
+	    El capítulo Buenos Aires ya ha realizado tres encuentros de intercambio, tres hackatones y un seminario web junto la Fundación Nuevo Periodismo. De la labor del capítulo, surgió <a href="http://mapa76.info/">Mapa76.info</a>, un proyecto de software de extracción automática de datos sobre los juicios de la última Dictadura Militar. El objetivo es visualizar automáticamente historias de vidas del período '76-'83 en base a testimonios, alegatos y sentencias judiciales. El software -actualmente en desarrollo- está orientado a analizar una base de documentos, vincularlos y encontrar relaciones que son de difícil hallazgo de forma &ldquo;analógica&rdquo;, que sirva como herramienta de investigación periodística, histórica y judicial. El código que funciona como motor de Mapa76.info es independiente y también será liberado como software libre GPLv3 se llama <a href="http://xdat.info/">xdat.info</a><br>
+	    <br>
+	    El equipo organizador de Hacks/Hackers Buenos Aires está conformado por Mariano Blejman (Página/12), Martín Sarsale (Sumavisos), Guillermo Movia (Mozilla Argentina), César Miquel (Easytech),  Mariana Berruezo, Sergio Sorin y Ezequiel Clerici.<br>
+	    twitter <a href="http://www.twitter.com/HacksHackersBA">@HacksHackersBA</a><br>
+	    mail <a href="mailto:ba@hackshackers.com">ba@hackshackers.com</a><br>
+	    Web <a href="http://meetupba.hackshackers.com/">http://meetupba.hackshackers.com</a><br>
+	    blog <a href="http://www.hackshackers.com/">http://www.hackshackers.com</a><br>
+	    <br>
+	    &lt;Abajo versión en inglés&gt;<br>
+	    <br>
+	    2011 Argentine&rsquo;s Elections. Real-time electoral hack.<br>
+	    <br>
+	    <a href="http://www.hackshackers.com/">Hack Electoral is a web application for political analysis that illustrates real-time provisional ballot results of the Argentine elections of October 23rd and provides various levels of analysis. The system features a selection of information from previous elections and socio-demographic statistics across the country.</a><br>
+	    <br>
+	    <a href="http://www.hackshackers.com/">Electoral Hack is an initiative of Hacks/Hackers Buenos Aires with Andy Tow, and is the result of joint volunteer and work of the members of the local chapter of Hacks/Hackers (journalists, programmers, designers, analysts, political scientists, etc.).</a><br>
+	    <br>
+	    <a href="http://www.hackshackers.com/">About the data</a><br>
+	    <a href="http://www.hackshackers.com/">All information posted comes from official sources and releases. In particular from the National Electoral Departmen who facilitated access to the raw data count by INDRA interim, the Interior Ministry provided the information about the eligible positions and candidates of different political parties, the university project yoquierosaber.org/ provided biographical information and the political platforms of each presidential formula, and more data comes from socio-demographic National Census of Population and Housing 2001 (INDEC-CNPV01), except for the population totals that correspond to the Census 2010 (INDEC-CNPV10).</a><br>
+	    <br>
+	    <a href="about:blank">How was it developed?</a><br>
+	    The application has been generated during the <a href="about:blank">Hackathon Elections 2011 Hacks/Hackers Buenos Aires</a> the day before the election, a day of work and programming with the collaboration of 30 volunteer specialists. Electoral Hack software is developed as open platform for anyone concerned to introduce improvements over time. Technology tools used <a href="about:blank">custom developments</a>, <a href="about:blank">Google Fusion Tables</a>, vector maps and graphics libraries, etc.<br>
+	    <br>
+	    <a href="http://www.hackshackers.com/">Why we do this</a><br>
+	    <a href="http://www.hackshackers.com/">Because we believe it is necessary to facilitate access to public information in a context manner and we encourage these kind of practices, and because we promote data journalism and we consider that the best way to demonstrate its potential is by leading cases.</a><br>
+	    <br>
+	    <a href="http://www.hackshackers.com/">About us</a><br>
+	    <a href="http://www.hackshackers.com/">Hacks/Hackers Buenos Aires –the local chapter of an international network that works for the future of journalism on the Internet- joins for this project to political scientist and blogger Andy Tow &lt;link to</a><a href="http://towsa.com/andy"> http://towsa.com/andy</a>&gt; and to Hilario Moreno del Campo –also political scientist from Dicen Consulting- to develop together with journalists, social scientists, programmers and graphic designers this innovative information system.<br>
+	    <br>
+	    Participants thanks to an idea of Sergio Sorin are: Andy Tow - Andrés Snitcofsky - Catalina Marino - César Miquel - Damián Janowski - Ezequiel Clerici - Federico Ricciardi - Fernanda Roux - Florencia Coelho - Guido Labonia - Guillermo Movia - Hilario Moreno del Campo - Juan Pablo Renzi - Kevin Hanna - Lucas Aznar - Luis E. Guardiola - Mariana Berruezo - Mariano Blejman - Mariano Mancuso - Martín Sarsale - Momi Peralta Ramos - Nicolás Cisco - Oscar Guindzberg - Sebastián Álvarez – Sebastián Meléndez - Sergio Sorín - Soledad Gherardi - Tania Wassaf  - Valeria Bula - Mariano Blejman.<br>
+	    <br>
+	    What Hacks/Hackers Buenos Aires is<br>
+	    In April 2011, we launched<a href="http://www.hackshackers.com/"> Hacks/Hackers</a> Buenos Aires, a group made ​​up of journalists, software developers and IT professionals who come together to help building the future of media. The chapter is part of a growing organization that had its first meeting in San Francisco in November 2009 and now has thousands of members around the world. Hacks / Hackers is the best place for "networking" in the world to find relationships, products, services and ideas between journalists and technologists, created by Burt Herman (Storify.com) and Aron Pilhofer (The New York Times) . Buenos Aires Chapter has already held three meetings to exchange, three hackathons and a web seminar with Fundación Nuevo Periodismo. In this framework,<a href="http://mapa76.info/"> Mapa76.info</a>  has also emerged, a software project of automatic extraction of data on the trials of the last military dictatorship. The goal is to automatically display life stories of '76-'83 period based on testimonies, pleadings and judicial decisions. The software, currently under development, is designed to analyze a database of documents and to find relations hard to detect in an "analog" mode. It aims to become an investigative journalism, history and law tool. The Mapa76.info engine is an independent code and it will also be released as free software GPLv3<a href="http://xdat.info/"> xdat.info</a><br>
+	    <br>
+	    The organizers of Hacks / Hackers Buenos Aires is made up Mariano Blejman (Página/12), Martín Sarsale (Sumavisos), Guillermo Movia (Mozilla Argentina), César Miquel (EasyTech), Mariana Berruezo, Sergio Sorín and Ezequiel Clerici.<br>
+	    Twitter<a href="http://www.twitter.com/HacksHackersBA"> @HacksHackersBA</a><br>
+	    Email ba@hackshackers.com<br>
+	    Web<a href="http://meetupba.hackshackers.com/"> http://meetupba.hackshackers.com</a><br>
+	    Blog<a href="http://www.hackshackers.com/"> Http://www.hackshackers.com</a></div>
+</section>
+
+    <!--  LISTA 047 - ARI -->                  
+    <section id="tooltip-lista-47" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-CoalicionCivica.jpg"  height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">ARI | CC</h2>
+			    <h3 style="display:inline;">Coalición Cívica ARI</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Elisa Carrio</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Adrián Pérez</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0047" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+
+	</section>
+    
+   <!--  LISTA 132 - UP -->                  
+    <section id="tooltip-lista-132" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenePopular.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | UP</h2>
+			    <h3 style="display:inline;">Coalición Unión Popular</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Eduardo Duhalde</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Mario Das Neves</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0132" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+   <!--  LISTA 133 - saa -->                  
+    <section id="tooltip-lista-133" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-Compromiso-federal.jpg" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PJ | CF</h2>
+			    <h3 style="display:inline;">Coalición: Compromiso Federal</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Alberto Rodriguez Saá</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>José María Vernet</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+					<div class="fill lista-0133" style="width: 20%;"></div>
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0133" style="width: 20%;"></div>
+			</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+    
+    <!--  LISTA 134 - FAP -->                  
+    <section id="tooltip-lista-134" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteAmplioProgresista.jpg"  height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PS | FAP</h2>
+			    <h3 style="display:inline;">Coalición: Frente Amplio Progresista</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Hermes Binner</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Norma Morandini</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft">PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0134" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+
+    <!--  LISTA 135 - FI -->                  
+    <section id="tooltip-lista-135" class="tooltipLista">
+	  <h2 ><span>Detalle candidato</span></h2>
+	  <section id='headerCandidato'>
+	      <br />
+	      <div  style="float:left; margin:2px 8px 0 8px;">
+	      		<img src="images/boletas/Boleta-FrenteIzquierda.jpg" width="150px" height="200px">
+	      </div>
+	      <div style="float:left; margin:2px 0px 0 0px; width:258px;">
+	      	  	<h2 style="font-weight:800; font-size:24px; margin:4px 0 0 0">PO | FIT</h2>
+			    <h3 style="display:inline;">Coalición: Frente de Izquierda y de los Trabajadores</h3>
+			    <br /> <br />
+			    <small>Candidato Presidente</small>
+			    <h2>Jorge Altamira</h2>
+			    <small>Candidato Vicepresidente</small>
+			    <h2>Christian Castillo</h2>
+	            
+	            <div class="fondoGris paso" style="margin-top:4px;">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+				</div>
+	            <div class="fondoGris">
+		              <!-- ************************************************************* ACA HAY QUE INYECTARLE CODIGO DE PORCENTAJES-->
+                  <div class="textLeft" >PRESIDENTE  <span class='pct_presidente'></span></div>
+					<div class="fill lista-0135" style="width: 20%;"></div>
+				</div>
+				<p class="clearer"></p>
+	       </div><p class="clearer"></p>
+	  </section>
+	</section>
+    
+ </div>
+ 
+<script type="text/javascript">
+/*
+hay que agregar al creador de cuadraditos (diputados y senadores) que yame a esto cuando termine de crearlo/relodearlo
+$(element).tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltipLista133").clone();
+     } 
+ });
+
+*/
+$(document).bind('onReadyDatosPresidente',function(e,res){
+        $(res.pct).each(function(n,resultado){
+            $("#tooltip-lista-"+resultado[0]+" .pct_presidente").text(resultado[1] + "%")
+            $("#tooltip-lista-"+resultado[0]+" .barra_presidente").css("width",resultado[1] + "%")
+        })
+
+     })
+ $('.lista-47, .lista-0047').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-47").clone();
+     } 
+ });
+ $('.lista-131, .lista-0131').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-131").clone();
+     } 
+ });
+ $('.lista-132, .lista-0132').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-132").clone();
+     } 
+ });
+ $('.lista-133, .lista-0133').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-133").clone();
+     } 
+ });
+ $('.lista-134, .lista-0134').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-134").clone();
+     } 
+ });
+ $('.lista-135, .lista-0135').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-135").clone();
+     } 
+ });
+
+ $('.lista-137, .lista-0137').tooltip({ 
+     delay: 0, track: false,
+     showURL: false, 
+     bodyHandler: function() { 
+         return $("#tooltip-lista-137").clone();
+     } 
+ });
+
+</script>
+
+<!-- =============================================================================== -->
+
+
+</body>
+</html>
