@@ -41,15 +41,13 @@ $(function() {
 
   map.setMapTypeId('plain');
 
-  new google.maps.FusionTablesLayer({
-    suppressInfoWindows: true,
+  var layer = new google.maps.FusionTablesLayer({
     map: map,
     query: {
       select: 'KML',
       from: 1932698
     }
   });
-
 });
 </script>
 </html>
