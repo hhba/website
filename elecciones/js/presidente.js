@@ -24,9 +24,8 @@
                     function cb(res) { 
                             var total = getTotales(res),
                                 perc = getPercentage(res, total);
-
                             for (key in perc)  
-                                $("."+cargo+" .lista-"+key).html(perc[key]);
+                                $("."+cargo+" .lista-"+Number(key)).html(perc[key] + " %" );
 
                             $(document).trigger('onReadyDatosPresidente'); //Terminamos de traer los datos de la Fusion del Presidente
                     }
@@ -47,8 +46,7 @@
 
 
                 for (key in datosDict) { 
-                    console.log("."+cargo+" .lista-"+key," XX ",String(datosDict[key]))
-                        $("."+cargo+" .lista-"+key).html(String(datosDict[key]));
+                        $("."+cargo+" .lista-"+Number(key)).html(String(datosDict[key]));
                 }
 
             }
