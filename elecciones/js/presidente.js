@@ -49,7 +49,8 @@
                 for (provincia in datos_provincias) {
                         var partidos = datos_provincias[provincia];
                         for (partido in partidos) {
-                            datosDict[partido] = (typeof(datosDict[partido]) == 'undefined') ? partidos[partido] : datosDict[partido] + partidos[partido];
+                            var lista_presidencial = listas_senadores_listas_presidente[partido]; 
+                            datosDict[lista_presidencial] = (typeof(datosDict[lista_presidencial]) == 'undefined') ? partidos[partido] : datosDict[lista_presidencial] + partidos[partido];
                         }
                 }
 
