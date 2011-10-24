@@ -186,8 +186,7 @@ $(document).bind("updated",set_tooltips_from_class)
 var process = function (listas, series) {
 var x = 0,
     $container = $('#tendencia-chart'),
-// comento esto porque se puso rarísimo el gráfico
-//    r = Raphael($container.attr('id'), $container.innerWidth(), $container.innerHeight()),
+    r = Raphael($container.attr('id'), $container.innerWidth(), $container.innerHeight()),
     labels = {},
     textattr = {stroke: "none", fill: "#000"},
     pathes = {};
@@ -291,7 +290,7 @@ function block() {
 }
 block();
 };
-
+/*
 $(function () {
   var series = [];
 
@@ -316,3 +315,4 @@ $(function () {
     process(tablas.listas, series);
   });
 });
+*/

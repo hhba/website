@@ -60,7 +60,7 @@
 
             }
             $(document).ready(function() {
-                completarPresidente(1930850, 'cod_agrupacion', 'votos_agrupacion', 'presidente'); //Presidentes
+                completarPresidente(1942542, 'cod_agrupacion', 'votos_agrupacion', 'presidente'); //Presidentes
                 setTimeout(function() {$(document).trigger('onReadyDatosLegislativo')}, 5000); //Triggereo el evento (prueba del evento de Oscar, lo llamaria el al traer de la DB los datos del legislativo)
             });
             $(document).bind('datosDiputadosCargados', function() {
