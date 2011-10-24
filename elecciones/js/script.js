@@ -180,7 +180,14 @@ function set_tooltips_from_class(){
   $('[class*="lista-"]').each(function(n,el){
     var lista=el.className.split(" ").filter(function(e){ return e.indexOf("lista-") == 0 })[0]
     if(lista){
-        $(el).attr("title","Aca debería haber un buen tooltip para la :"+lista);
+        var lista_num = Number(lista.split("-")[1])
+        $(el).tooltip({ 
+            delay: 0, track: false,
+            showURL: false, 
+            bodyHandler: function() { 
+                return $("#tooltip-lista-"+lista_num).clone();
+            } 
+        });
     }
   })
 
